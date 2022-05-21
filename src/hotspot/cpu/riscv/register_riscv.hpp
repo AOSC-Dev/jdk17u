@@ -95,8 +95,6 @@ class RegisterImpl: public AbstractRegisterImpl {
   }
 };
 
-REGISTER_IMPL_DECLARATION(Register, RegisterImpl, RegisterImpl::number_of_registers);
-
 // The integer registers of the RISCV architecture
 
 CONSTANT_REGISTER_DECLARATION(Register, noreg, (-1));
@@ -186,8 +184,6 @@ class FloatRegisterImpl: public AbstractRegisterImpl {
   }
 };
 
-REGISTER_IMPL_DECLARATION(FloatRegister, FloatRegisterImpl, FloatRegisterImpl::number_of_registers);
-
 // The float registers of the RISCV architecture
 
 CONSTANT_REGISTER_DECLARATION(FloatRegister, fnoreg , (-1));
@@ -257,8 +253,6 @@ class VectorRegisterImpl: public AbstractRegisterImpl {
 
 };
 
-REGISTER_IMPL_DECLARATION(VectorRegister, VectorRegisterImpl, VectorRegisterImpl::number_of_registers);
-
 // The vector registers of RVV
 CONSTANT_REGISTER_DECLARATION(VectorRegister, vnoreg , (-1));
 
@@ -316,9 +310,5 @@ class ConcreteRegisterImpl : public AbstractRegisterImpl {
   static const int max_fpr;
   static const int max_vpr;
 };
-
-typedef AbstractRegSet<Register> RegSet;
-typedef AbstractRegSet<FloatRegister> FloatRegSet;
-typedef AbstractRegSet<VectorRegister> VectorRegSet;
 
 #endif // CPU_RISCV_REGISTER_RISCV_HPP
